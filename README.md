@@ -3,10 +3,12 @@
 
 ## cara run di terminal vscode/cmd(rekomendasi):
 
+```
 npm install -g nodemon
 npm init -y
 npm install @whiskeysockets/baileys
 npm start
 
-## jka pakai API groq maka instal telebih dahulu sebelum running :
+jka pakai API groq maka instal telebih dahulu sebelum running :
 npm install groq-sdk
+```
