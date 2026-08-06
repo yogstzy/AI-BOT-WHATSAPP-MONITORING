@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Dashboard monitoring KeliBot"
+    >
+
+    <title>
+        KeliBot Dashboard
+    </title>
+
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- CSS Dashboard -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================================= -->
+<!-- SIDEBAR -->
+<!-- ================================= -->
+
+<aside class="sidebar">
+
+
+    <!-- Logo -->
+
+    <div class="brand">
+
+        <div class="brand-icon">
+
+            <i class="bi bi-robot"></i>
+
+        </div>
+
+
+        <div class="brand-text">
+
+            <h1>
+                KeliBot
+            </h1>
+
+            <span>
+                AI Dashboard
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Menu -->
+
+    <nav class="sidebar-menu">
+
+
+        <a
+            href="#dashboard"
+            class="menu-item active"
+        >
+
+            <i class="bi bi-grid-1x2-fill"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a
+            href="#activity"
+            class="menu-item"
+        >
+
+            <i class="bi bi-activity"></i>
+
+            <span>
+                Aktivitas
+            </span>
+
+        </a>
+
+        <a
+            href="#system"
+            class="menu-item"
+        >
+
+            <i class="bi bi-cpu-fill"></i>
+
+            <span>
+                Sistem
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+    <!-- Status bawah -->
+
+    <div class="sidebar-status">
+
+        <div class="status-indicator">
+
+            <span class="status-dot"></span>
+
+            <span>
+                Bot Online
+            </span>
+
+        </div>
+
+
+        <small>
+
+            KeliBot v2.0.0
+
+        </small>
+
+    </div>
+
+
+</aside>
+
+
+<!-- ================================= -->
+<!-- MAIN CONTENT -->
+<!-- ================================= -->
+
+<main class="main-content">
+
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+
+        <div class="page-title">
+
+            <p>
+                Monitoring Sistem
+            </p>
+
+            <h2>
+                Dashboard KeliBot
+            </h2>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+
+            <!-- Waktu -->
+
+            <div class="current-time">
+
+                <i class="bi bi-clock"></i>
+
+                <span id="currentTime">
+
+                    --:--:--
+
+                </span>
+
+            </div>
+
+
+            <!-- Status server -->
+
+            <div class="server-status">
+
+                <span class="server-dot"></span>
+
+                <span id="serverStatus">
+
+                    Menghubungkan...
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </header>
+
+
+    <!-- ================================= -->
+    <!-- DASHBOARD -->
+    <!-- ================================= -->
+
+    <section
+        id="dashboard"
+        class="dashboard-section"
+    >
+
+
+        <!-- Judul -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <h3>
+                    Ringkasan Bot
+                </h3>
+
+                <p>
+                    Pantau aktivitas KeliBot
+                    secara real-time.
+                </p>
+
+            </div>
+
+
+            <button
+                id="refreshButton"
+                class="refresh-button"
+            >
+
+                <i class="bi bi-arrow-clockwise"></i>
+
+                Refresh
+
+            </button>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- STATISTIC CARDS -->
+        <!-- ================================= -->
+
+        <div class="stats-grid">
+
+
+            <!-- Total Pesan -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon message-icon">
+
+                    <i class="bi bi-chat-dots-fill"></i>
+
+                </div>
+
+
+                <div class="stat-info">
+
+                    <span>
+                        Total Pesan
+                    </span>
+
+                    <h3 id="totalMessages">
+
+                        0
+
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- Request AI -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon ai-icon">
+
+                    <i class="bi bi-cpu-fill"></i>
+
+                </div>
+
+
+                <div class="stat-info">
+
+                    <span>
+                        Request AI
+                    </span>
+
+                    <h3 id="aiRequests">
+
+                        0
+
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- Command -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon command-icon">
+
+                    <i class="bi bi-terminal-fill"></i>
+
+                </div>
+
+
+                <div class="stat-info">
+
+                    <span>
+                        Command Lokal
+                    </span>
+
+                    <h3 id="localCommands">
+
+                        0
+
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- Uptime -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon uptime-icon">
+
+                    <i class="bi bi-stopwatch-fill"></i>
+
+                </div>
+
+
+                <div class="stat-info">
+
+                    <span>
+                        Uptime
+                    </span>
+
+                    <h3
+                        id="uptime"
+                        class="uptime-text"
+                    >
+
+                        0 detik
+
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- STATUS GRID -->
+        <!-- ================================= -->
+
+        <div class="content-grid">
+
+
+            <!-- STATUS SISTEM -->
+
+            <article
+                id="system"
+                class="panel system-panel"
+            >
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Status Sistem
+                        </h3>
+
+                        <p>
+                            Kondisi layanan KeliBot
+                        </p>
+
+                    </div>
+
+
+                    <i class="bi bi-shield-check"></i>
+
+                </div>
+
+
+                <div class="system-list">
+
+
+                    <!-- WhatsApp -->
+
+                    <div class="system-item">
+
+                        <div class="system-left">
+
+                            <div class="system-icon">
+
+                                <i class="bi bi-whatsapp"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h4>
+                                    WhatsApp
+                                </h4>
+
+                                <span>
+                                    Koneksi Baileys
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="whatsappStatus"
+                            class="system-badge loading"
+                        >
+
+                            Menghubungkan
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI -->
+
+                    <div class="system-item">
+
+                        <div class="system-left">
+
+                            <div class="system-icon">
+
+                                <i class="bi bi-robot"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h4>
+                                    Groq AI
+                                </h4>
+
+                                <span>
+                                    Llama 3.3 70B
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="system-badge online">
+
+                            Online
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Dashboard -->
+
+                    <div class="system-item">
+
+                        <div class="system-left">
+
+                            <div class="system-icon">
+
+                                <i class="bi bi-window"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h4>
+                                    Dashboard
+                                </h4>
+
+                                <span>
+                                    Express Server
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="system-badge online">
+
+                            Online
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Memory -->
+
+                    <div class="system-item">
+
+                        <div class="system-left">
+
+                            <div class="system-icon">
+
+                                <i class="bi bi-database-fill"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h4>
+                                    Memory AI
+                                </h4>
+
+                                <span>
+                                    JSON Storage
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="system-badge online">
+
+                            Aktif
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+            <!-- INFO BOT -->
+
+            <article class="panel bot-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Informasi Bot
+                        </h3>
+
+                        <p>
+                            Konfigurasi KeliBot
+                        </p>
+
+                    </div>
+
+
+                    <i class="bi bi-info-circle"></i>
+
+                </div>
+
+
+                <div class="bot-info-list">
+
+
+                    <div class="bot-info-row">
+
+                        <span>
+                            Nama Bot
+                        </span>
+
+                        <strong>
+                            KeliBot
+                        </strong>
+
+                    </div>
+
+
+                    <div class="bot-info-row">
+
+                        <span>
+                            Versi
+                        </span>
+
+                        <strong>
+                            v2.0.0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="bot-info-row">
+
+                        <span>
+                            AI Provider
+                        </span>
+
+                        <strong>
+                            Groq
+                        </strong>
+
+                    </div>
+
+
+                    <div class="bot-info-row">
+
+                        <span>
+                            AI Model
+                        </span>
+
+                        <strong>
+                            Llama 3.3 70B
+                        </strong>
+
+                    </div>
+
+
+                    <div class="bot-info-row">
+
+                        <span>
+                            Terakhir Aktif
+                        </span>
+
+                        <strong id="lastActivity">
+
+                            Belum ada
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- ACTIVITY -->
+        <!-- ================================= -->
+
+        <article
+            id="activity"
+            class="panel activity-panel"
+        >
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h3>
+                        Aktivitas Terbaru
+                    </h3>
+
+                    <p>
+                        Riwayat aktivitas KeliBot
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="clearLogButton"
+                    class="clear-button"
+                >
+
+                    <i class="bi bi-trash3"></i>
+
+                    Bersihkan
+
+                </button>
+
+            </div>
+
+
+            <!-- Log -->
+
+            <div
+                id="activityList"
+                class="activity-list"
+            >
+
+
+                <div class="empty-activity">
+
+                    <i class="bi bi-inbox"></i>
+
+                    <h4>
+                        Belum ada aktivitas
+                    </h4>
+
+                    <p>
+                        Aktivitas bot akan muncul
+                        di bagian ini.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+
+            © 2026 KeliBot By Yoga
+
+        </span>
+
+
+        <span>
+
+            Dashboard Monitoring Bot
+
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+<!-- JavaScript -->
+
+<script
+    src="script.js"
+></script>
+
+
+</body>
+
+</html>
