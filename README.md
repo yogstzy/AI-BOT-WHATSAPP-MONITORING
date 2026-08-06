@@ -1,5 +1,5 @@
 # AI-BOT-WHATSAPP-MONITORING-REALTIME
-dibuat menggunakan koneksi socket baileys+node.js+js+GroqAPI+html+css+Express
+dibuat menggunakan koneksi socket baileys+node.js+js+GroqAPI+html+css+Json+Express
 
 ----- cara run di terminal vscode/cmd(rekomendasi) ------:
 npm install -g nodemon
