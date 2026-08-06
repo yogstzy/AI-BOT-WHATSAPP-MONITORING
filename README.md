@@ -1,4 +1,4 @@
-# AI-BOT-WHATSAPP-MONITORING
+# AI-BOT-WHATSAPP-MONITORING-REALTIME
 dibuat menggunakan koneksi socket baileys+node.js+js+GroqAPI+html+css+Express
 
 ----- cara run di terminal vscode/cmd(rekomendasi) ------:
